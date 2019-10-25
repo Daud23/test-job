@@ -24,11 +24,11 @@
       stage('Build') {
     steps {
         shell(readFileFromWorkspace('generate_job.groovy'))
-    }
-}
+      }
+      }
     }</script>
     <sandbox>true</sandbox>
   </definition>
-  <triggers/>
+  
   <disabled>false</disabled>
 </flow-definition>
