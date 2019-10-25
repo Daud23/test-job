@@ -20,6 +20,12 @@
       stage ('Generate') {
         jobDsl targets: 'generate_job.groovy'
       }
+
+      stage('Build') {
+    steps {
+        shell(readFileFromWorkspace('generate_job.groovy'))
+    }
+}
     }</script>
     <sandbox>true</sandbox>
   </definition>
