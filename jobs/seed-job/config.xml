@@ -22,13 +22,12 @@
       }
       
     }</script>
+    <string>hudson.triggers.TimerTrigger</string>
+      triggers {
+        cron(&apos;H/4 * * * *&apos;)
+      }
     <sandbox>true</sandbox>
   </definition>
-  <triggers>
-    <hudson.triggers.SCMTrigger>
-      <spec>*/2 * * * *</spec>
-      <ignorePostCommitHooks>false</ignorePostCommitHooks>
-    </hudson.triggers.SCMTrigger>
-  </triggers>
+
   <disabled>false</disabled>
 </flow-definition>
