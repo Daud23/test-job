@@ -4,7 +4,7 @@ job('generated-job') {
         git('https://git:git@github.com/beerkeeper/python-ip-script', 'master')
     }
     triggers {
-        scm('*/2 * * * *')
+        cron('H/2 * * * *')
     }
     steps {
       	shell('''
