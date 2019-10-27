@@ -19,7 +19,7 @@
       }
       
       stage ('Generate') {
-        jobDsl targets: 'job/generate_job.groovy'
+        jobDsl targets: 'generate_job.groovy'
       }
 
     }</script>
