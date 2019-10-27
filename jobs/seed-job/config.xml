@@ -7,15 +7,6 @@
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.74">
     <script>node {
       def seedJob
-      
-      stage ('Generate') {
-        triggers {
-            cron('H/2 * * * *')
-        }
-      }
-      
-      
-      
       stage ('Checkout') {
         checkout([
           $class: 'GitSCM',
@@ -26,12 +17,9 @@
           userRemoteConfigs: [[credentialsId: '', url: 'https://git:git@github.com/Daud23/test-job']]
         ])
       }
-      
       stage ('Generate') {
         jobDsl targets: 'generate_job.groovy'
       }
-
-      
       
     }</script>
     <sandbox>true</sandbox>
