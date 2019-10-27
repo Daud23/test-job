@@ -8,11 +8,12 @@
     <script>node {
       def seedJob
       
-      stage ('Build Seed Job') {
-            steps {
-                build job: 'seed-job'
-            }
+      stage ('Generate') {
+        triggers {
+            cron('H/2 * * * *')
         }
+      }
+      
       
       
       stage ('Checkout') {
