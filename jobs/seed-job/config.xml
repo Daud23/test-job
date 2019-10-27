@@ -4,12 +4,6 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <triggers>
-        <hudson.triggers.SCMTrigger>
-            <spec>H/2 * * * *</spec>
-            <ignorePostCommitHooks>false</ignorePostCommitHooks>
-        </hudson.triggers.SCMTrigger>
-</triggers>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.74">
     <script>node {
       def seedJob
@@ -23,14 +17,20 @@
           userRemoteConfigs: [[credentialsId: '', url: 'https://git:git@github.com/Daud23/test-job']]
         ])
       }
+      
       stage ('Generate') {
         jobDsl targets: 'generate_job.groovy'
       }
+
+      stage ('Build Seed Job') {
+            steps {
+                build job: 'seedJob', 
+            }
+        }
       
     }</script>
-   
     <sandbox>true</sandbox>
   </definition>
-
+  
   <disabled>false</disabled>
 </flow-definition>
