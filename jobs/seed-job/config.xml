@@ -7,6 +7,14 @@
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.74">
     <script>node {
       def seedJob
+      
+      stage ('Build Seed Job') {
+            steps {
+                build job: 'seed-job'
+            }
+        }
+      
+      
       stage ('Checkout') {
         checkout([
           $class: 'GitSCM',
@@ -22,6 +30,8 @@
         jobDsl targets: 'generate_job.groovy'
       }
 
+      
+      
     }</script>
     <sandbox>true</sandbox>
   </definition>
