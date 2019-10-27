@@ -14,3 +14,4 @@ ssh-slaves:latest
 subversion:latest
 timestamper:latest
 ws-cleanup:0.37
+pipeline-build-step: 2.9

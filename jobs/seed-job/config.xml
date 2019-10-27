@@ -24,7 +24,7 @@
 
       stage ('Build Seed Job') {
             steps {
-                build job: 'seedJob', 
+                build job: 'seed-job', propagate: true, wait: true
             }
         }
       
