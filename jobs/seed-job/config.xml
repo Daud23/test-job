@@ -19,15 +19,9 @@
       }
       
       stage ('Generate') {
-        jobDsl targets: 'generate_job.groovy'
+        jobDsl targets: 'job/generate_job.groovy'
       }
 
-      stage ('Build Seed Job') {
-            steps {
-                build job: 'seed-job', wait: true
-            }
-        }
-      
     }</script>
     <sandbox>true</sandbox>
   </definition>
